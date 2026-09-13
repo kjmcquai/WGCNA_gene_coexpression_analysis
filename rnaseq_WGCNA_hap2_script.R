@@ -1,3 +1,4 @@
+# Import Libraries 
 library(WGCNA)
 library(tidyverse)
 
@@ -6,7 +7,7 @@ library(tidyverse)
 #------------------------------------------------------------------------------
 
 # read in fpkm files for bud 
-gene_fpkm_bud <- read.csv(file.choose(), row.names = 1)
+gene_fpkm_bud <- read.csv("data/gene_fpkm_bud.csv", row.names = 1)
 
 # transpose table to match WGCNA format(samples as rows, genes as columns)
 bud_t <- t(gene_fpkm_bud)
@@ -62,7 +63,7 @@ dev.off()
 
 # add sex expression layer
 #read in bud metadata
-bud_meta <- read.csv(file.choose())
+bud_meta <- read.csv("data/bud_meta.csv")
 
 sex_bud <- as.data.frame(ifelse(bud_meta$sex == "F", 0, 1))
 rownames(sex_bud) <- bud_meta$ids
@@ -144,7 +145,7 @@ write.csv(green_genes, "bud_green_genes.csv", row.names = FALSE)
 write.csv(brown_genes, "bud_brown_genes.csv", row.names = FALSE)
 
 # filter to find which genes are present in the DEG list 
-results_genes_bud <- read.csv(file.choose())
+results_genes_bud <- read.csv("data/DEG_genes_bud.csv")
 
 sig_degs_bud <- subset(results_genes_bud, qval <= 0.05)
 
@@ -175,7 +176,7 @@ save(bud_net, bud_t, bud_MEs, bud_moduleTraitCor, bud_moduleTraitPvalue,
 #------------------------------------------------------------------------------
 
 # read in fpkm files for flw
-gene_fpkm_flw <- read.csv(file.choose(), row.names = 1)
+gene_fpkm_flw <- read.csv("data/gene_fpkm_flw.csv", row.names = 1)
 
 # transpose table to match WGCNA format(samples as rows, genes as columns)
 flw_t <- t(gene_fpkm_flw)
@@ -230,7 +231,7 @@ dev.off()
 
 # add sex expression layer
 #read in bud metadata
-flw_meta <- read.csv(file.choose())
+flw_meta <- read.csv("data/flw_meta.csv")
 
 sex_flw <- as.data.frame(ifelse(flw_meta$sex == "F", 0, 1))
 rownames(sex_flw) <- flw_meta$ids
