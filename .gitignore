@@ -1,15 +1,22 @@
-# History files
+# R session & workspace cache
 .Rhistory
-.Rapp.history
-
-# Session data files
 .RData
 .RDataTmp
-
-# User-specific files
 .Ruserdata
+.Rproj.user/
 
-# Large input/output data & figures (keep code repository clean)
+# Input data & local outputs (keeps repository clean)
 *.csv
+*.tsv
+*.txt
+data/
+
+# Exported figures
 *.pdf
-*.RData
+*.png
+*.svg
+plots/
+
+# OS system files
+.DS_Store
+Thumbs.db
