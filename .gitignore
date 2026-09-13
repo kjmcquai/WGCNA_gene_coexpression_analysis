@@ -1,0 +1,15 @@
+# History files
+.Rhistory
+.Rapp.history
+
+# Session data files
+.RData
+.RDataTmp
+
+# User-specific files
+.Ruserdata
+
+# Large input/output data & figures (keep code repository clean)
+*.csv
+*.pdf
+*.RData
